@@ -98,9 +98,9 @@ public class ShiroRealm extends AuthorizingRealm {
 		UsernamePasswordToken token = (UsernamePasswordToken)authenticationToken;
 		logger.info("用户登录认证：验证当前Subject时获取到token为：" + ReflectionToStringBuilder
 				.toString(token, ToStringStyle.MULTI_LINE_STYLE));
-		String mobile = token.getUsername();
+		String username = token.getUsername();
 		// 调用数据层
-		User user = userMapper.findUserByMobile(mobile);
+		User user = userMapper.findUserByName(username);
 
 		logger.debug("用户登录认证！用户信息user：" + user);
 		if (user == null) {

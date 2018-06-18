@@ -12,11 +12,11 @@ public class UserDTO {
 	private Integer id;
 	@NotNull(message = "用户名不能为空，请您先填写用户名")
 	private String username;
-	@NotNull(message = "手机号不能为空，请您先填写手机号")
+//	@NotNull(message = "手机号不能为空，请您先填写手机号")
 	private String mobile;
 
 	private String email;
-	@NotNull(message = "密码不能为空，请您先填写手机号")
+	@NotNull(message = "密码不能为空，请您填写密码")
 	@MatchPattern(pattern = "^[0-9_a-zA-Z]{6,20}$", message = "用户名或密码有误，请您重新填写")
 	private String password;
 	@NotNull(message = "图片验证码不能为空，请您先填写验证码")

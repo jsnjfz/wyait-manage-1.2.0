@@ -72,6 +72,13 @@ public interface UserService {
 	User findUserByMobile(String mobile);
 
 	/**
+	 * 根据用户名查询用户数据
+	 * @param name
+	 * @return
+	 */
+	User findUserByName(String name);
+
+	/**
 	 * 根据手机号发送短信验证码
 	 * @param mobile
 	 * @return

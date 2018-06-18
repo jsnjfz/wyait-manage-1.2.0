@@ -277,6 +277,11 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	public User findUserByName(String name) {
+		return this.userMapper.findUserByName(name);
+	}
+
+	@Override
 	public String sendMessage(int userId, String mobile) {
 		String mobile_code = String.valueOf((Math.random() * 9 + 1) * 100000);
 		// 保存短信

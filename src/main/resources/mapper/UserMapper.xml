@@ -319,7 +319,7 @@
 	<select id="findUserByName" resultType="com.wyait.manage.pojo.User">
 		select
 		id, username,
-		mobile, email, insert_uid insertUid, insert_time
+		mobile, password, email, insert_uid insertUid, insert_time
 		insertTime,
 		update_time updateTime, is_del isDel,is_job
 		isJob,mcode,send_time

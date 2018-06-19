@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -110,13 +111,15 @@ public class WeiboController {
      * @return
      */
     @GetMapping("/quanwen")
-    public ModelAndView detail(@RequestParam("weiboId") String weiboId,
-                               Map<String, Object> map) {
+    @ResponseBody
+    public Map<String, Object> detail(@RequestParam("weiboId") String weiboId) {
 
+        Map<String, Object> map = new HashMap<>();
         Weibore weibore = weiboService.findOne(weiboId);
         map.put("weibore", weibore);
+        map.put("msg", "ok");
 
-        return new ModelAndView("quanwen", map);
+        return map;
     }
 
 

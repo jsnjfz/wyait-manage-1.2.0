@@ -26,14 +26,14 @@ $(function() {
                 ,{field:'weiboContent', title:'微博内容', minWidth:200}
                 ,{field:'yuanchuang', title: '是否原创', minWidth:10}
                 ,{field:'weiboReContent', title: '转发内容'}
-                ,{title:'全文',minWidth:20, templet: '#quanwen'}
+                ,{title:'全文',minWidth:20, toolbar: '#optBar'}
                 ,{field:'weiboPlace', title: '微博地点', minWidth:20}
                 ,{field:'publishTime', title: '发布时间', minWidth:30}
                 ,{field:'publishTool', title: '发布工具', minWidth:30}
                 ,{field:'upNum', title: '点赞数', minWidth:10}
                 ,{field:'retweetNum', title: '转发数', minWidth:10}
                 ,{field:'commentNum', title: '评论数', minWidth:10}
-
+                // ,{field:'weiboId', display:'none'}
             ]]
             ,  done: function(res, curr, count){
                 //如果是异步请求数据方式，res即为你接口返回的信息。
@@ -44,6 +44,15 @@ $(function() {
                 //得到数据总量
                 //console.log(count);
                 pageCurr=curr;
+            }
+        });
+
+        //监听工具条
+        table.on('tool(userTable)', function(obj){
+            var data = obj.data;
+            if(obj.event === 'quanwen'){
+                //编辑
+                getUserAndRoles(data,data.weiboId);
             }
         });
 
@@ -87,5 +96,29 @@ function getQueryStringArgs() {
     }
 
     return args
+}
+
+function getUserAndRoles(obj,id) {
+        //回显数据
+        $.get("/weibo/quanwen",{"weiboId":id},function(data){
+                if(data.msg=="ok" && data.weibore!=null){
+                    $("textarea[name='weiboContent']").val(data.weibore.weiboContent);
+                    layer.open({
+                        type:1,
+                        title: "全文",
+                        fixed:false,
+                        resize :false,
+                        shadeClose: true,
+                        area: ['550px'],
+                        content:$('#setUser')
+                    });
+
+                }else{
+                    //弹出错误提示
+                    layer.alert(data.msg,function () {
+                        layer.closeAll();
+                    });
+                }
+        });
 }
 

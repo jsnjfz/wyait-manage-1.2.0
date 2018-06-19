@@ -18,11 +18,31 @@
 
         <table id="weiboDetail" lay-filter="userTable"></table>
 
+        <script type="text/html" id="optBar">
+            {{#  if(d.reLink == ""||d.reLink == null){ }}
+            {{#  } else { }}
+            <a class="layui-btn layui-btn-xs" lay-event="quanwen">全文</a>
+            {{#  } }}
+
+        </script>
+
         <!--<script>-->
             <!---->
         <!--</script>-->
 
     </div>
+
+    <div id="setUser" class="layer_self_wrap" style="width:500px;height:500px;display:none;">
+        <form id="userForm" class="layui-form layui-form-pane" method="post" action="" style="margin-top: 10px;">
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">微博内容</label>
+                <div class="layui-input-block">
+                    <textarea id="weiboContent" name="weiboContent"  autocomplete="off" class="layui-textarea" type="text" style="height:400px"/>
+                </div>
+            </div>
+        </form>
+    </div>
+
 
 
 

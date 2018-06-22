@@ -44,7 +44,7 @@ public class AuthController {
 	public ModelAndView toPage(
 			Permission permission) {
 		logger.debug("新增权限--permission-" + permission);
-		ModelAndView mav = new ModelAndView("/home");
+		ModelAndView mav = new ModelAndView("home");
 		try {
 			if (null != permission) {
 				permission.setInsertTime(new Date());
@@ -69,7 +69,7 @@ public class AuthController {
 	@ResponseBody
 	public ModelAndView permList() {
 		logger.debug("权限列表！");
-		ModelAndView mav = new ModelAndView("/auth/permList");
+		ModelAndView mav = new ModelAndView("auth/permList");
 		try {
 			List<Permission> permList = authService.permList();
 			logger.debug("权限列表查询=permList:" + permList);
@@ -165,7 +165,7 @@ public class AuthController {
 	 */
 	@RequestMapping("/roleManage")
 	public ModelAndView toPage() {
-		return new ModelAndView("/auth/roleManage");
+		return new ModelAndView("auth/roleManage");
 	}
 
 	/**
@@ -238,7 +238,7 @@ public class AuthController {
 	//@ResponseBody
 	public ModelAndView updateRole(@PathVariable("id") Integer id) {
 		logger.debug("根据id查询角色id："+id);
-		ModelAndView mv=new ModelAndView("/auth/roleManage");
+		ModelAndView mv=new ModelAndView("auth/roleManage");
 		try {
 			if(null==id){
 				mv.addObject("msg","请求参数有误，请您稍后再试");

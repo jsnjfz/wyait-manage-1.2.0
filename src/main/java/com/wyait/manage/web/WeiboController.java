@@ -37,12 +37,12 @@ public class WeiboController {
 
     @RequestMapping("/weiboList")
     public String toUserList() {
-        return "/weiboList";
+        return "weiboList";
     }
 
     @RequestMapping("/weiboDetail")
     public String weiboDetail() {
-        return "/weiboDetail";
+        return "weiboDetail";
     }
 
 

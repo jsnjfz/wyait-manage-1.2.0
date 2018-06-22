@@ -63,7 +63,7 @@ public class UserController {
 
 	@RequestMapping("/userList")
 	public String toUserList() {
-		return "/auth/userList";
+		return "auth/userList";
 	}
 
 	/**

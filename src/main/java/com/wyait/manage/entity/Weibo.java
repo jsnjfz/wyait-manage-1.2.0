@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 
 /**
  * @Author fz
@@ -37,6 +38,12 @@ public class Weibo {
      * 买家地址.
      */
     private String createTime;
+
+    private String scoreString;
+
+    private BigDecimal score;
+
+    private String type;
 
 
 }

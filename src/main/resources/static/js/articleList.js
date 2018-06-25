@@ -8,8 +8,8 @@ $(function() {
             ,form = layui.form;
 
         tableIns=table.render({
-            elem: '#weiboList'
-            ,url:'/weibo/list'
+            elem: '#articleList'
+            ,url:'/article?typeName=' + getQueryStringArgs().typeName
             ,method: 'get' //默认：get请求
             ,cellMinWidth: 80
             ,page: true,
@@ -24,14 +24,9 @@ $(function() {
             }
             ,cols: [[
                 {field:'id', title:'ID',width:80, unresize: true, sort: true, minWidth:20}
-                ,{field:'userId', title:'用户id',sort: true}
-                ,{field:'commentScreenName', title:'用户昵称'}
-                ,{field:'type', title:'分类'}
-                ,{field:'score', title:'自测得分'}
-                ,{field:'commentCont', title: '评论内容'}
-                ,{field:'createTime', title: '评论时间', minWidth:80}
-                // ,{fixed:'right', title:'操作',width:140,align:'center', url:"/detail?userId=${userId}"}
-                ,{fixed:'right', title:'操作',width:140,align:'center', templet: '#userId'}
+                ,{field:'title', title:'标题'}
+                ,{field:'content', title:'内容'}
+                ,{field:'url', title:'链接'}
 
             ]]
             ,  done: function(res, curr, count){
@@ -97,5 +92,27 @@ function cleanUser(){
     $("#mobile").val("");
     $("#email").val("");
     $("#password").val("");
+}
+
+function getQueryStringArgs() {
+    var qs = (location.search.length > 0 ? location.search.substring(1) : '')
+    var args = {}
+    var items = qs.length ? qs.split('&') : []
+    var item = null
+    var name = null
+    var value = null
+    var len = items.length
+
+    for (var i = 0; i < len; i++) {
+        item = items[i].split('=')
+        name = decodeURIComponent(item[0])
+        value = decodeURIComponent(item[1])
+
+        if (name.length) {
+            args[name] = value
+        }
+    }
+
+    return args
 }
 

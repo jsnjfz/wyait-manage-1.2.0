@@ -32,6 +32,7 @@ $(function() {
                 ,{field:'createTime', title: '评论时间', minWidth:80}
                 // ,{fixed:'right', title:'操作',width:140,align:'center', url:"/detail?userId=${userId}"}
                 ,{fixed:'right', title:'操作',width:140,align:'center', templet: '#userId'}
+                ,{fixed:'right', title:'操作',width:140,align:'center', templet: '#ciyun'}
 
             ]]
             ,  done: function(res, curr, count){

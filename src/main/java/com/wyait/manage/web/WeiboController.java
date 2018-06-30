@@ -45,8 +45,13 @@ public class WeiboController {
         return "weiboDetail";
     }
 
+//    @GetMapping("/3176085242")
+//    public ModelAndView html() {
+//        return new ModelAndView("3176085242");
+//    }
 
-    @GetMapping("/list")
+
+        @GetMapping("/list")
     @ResponseBody
     public PageDataResult list(@RequestParam(value = "page", defaultValue = "1") Integer page,
                              @RequestParam(value = "size", defaultValue = "10") Integer size,

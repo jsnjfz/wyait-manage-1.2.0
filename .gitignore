@@ -1,3 +1,4 @@
 .idea/
 wyait-manage.iml
 target/
+src/main/resources/static/html/

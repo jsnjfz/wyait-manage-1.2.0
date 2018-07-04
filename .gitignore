@@ -2,3 +2,5 @@
 wyait-manage.iml
 target/
 src/main/resources/static/html/
+src/main/resources/static/zhu/
+src/main/resources/static/baiduindex/
